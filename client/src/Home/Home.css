@@ -231,8 +231,6 @@ label.icon-search span {
     right: 2px;
     padding-right: 12px;
 }
-/*--//search--*/
--- nav --*/
  .w3_navigation {
     background: #0f2453 ;
 }
@@ -416,9 +414,7 @@ li.menu__item:nth-child(6) {
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
-/*-- //nav-effect --*/
-/*-- //header --*/
-/*-- banner-text --*/ 
+
 .header-w3layouts{
     position: absolute;
     top: 0;
@@ -486,8 +482,7 @@ li.menu__item:nth-child(6) {
 	border: 2px solid #fff;
 	background: #ffce14;
 }
-/*-- //banner-text --*/
-/*-- banner-top --*/
+
 .w3layouts-banner-top{
     background: url(./../images/1.jpg) no-repeat 0px 0px;
     background-size: cover;	
