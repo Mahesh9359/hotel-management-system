@@ -7,6 +7,7 @@ import Payment from './models/Payment.js';
 import Contact from './models/Contact.js';
 import path from 'path';
 import Userlogin from './models/Userlogin.js';
+import validator from 'validator';
 const __dirname = path.resolve();
 dotenv.config();
 const app = express();
@@ -33,6 +34,31 @@ app.post('/reservationinfo', async (req, res) => {
             
         })
     }
+    if(!validator.isMobilePhone(phone))
+    {
+        return res.json({
+            success: false,
+            message: "Mobile must contain 10 digit",
+            
+        })
+    }
+    if(!validator.isEmail(email))
+    {
+        return res.json({
+            success: false,
+            message: "Please enter valid email",
+            
+        })
+    }
+    if(!validator.isAlpha(fname) || !validator.isAlpha(lname))
+    {
+        return res.json({
+            success: false,
+            message: "Please enter valid string",
+            
+        })
+    }
+
     const reservation = new Reservationinfo({
         title: title,
         fname: fname,
@@ -87,6 +113,7 @@ app.post('/payment', async (req, res) => {
 
 })
 //api for new room booking
+
 
 app.get('/newbookedroom',async (req,res)=>{
     const rooms = await Reservationinfo.find();
@@ -161,11 +188,43 @@ app.post('/loginuser', async (req, res) => {
         })
     }
 })
+//api for view message
+app.get('/viewmessage', async(req,res)=>{
+    const contact = await Contact.find();
+
+    res.json({
+        success : true,
+        message : "Contact fetch successfully",
+        data : contact
+    }) 
+    
+
+})
 
 //send data contact api
 app.post('/contact', async (req, res) => {
     const { fname, phone,email } = req.body;
 
+
+    
+    if(!validator.isMobilePhone(phone))
+    {
+        return res.json({
+            success: false,
+            message: "Mobile must contain 10 digit",
+            
+        })
+    }
+
+    if(!validator.isEmail(email))
+    {
+        return res.json({
+            success: false,
+            message : "Enter valid mail"
+        })
+    }
+
+    
     
     const contact = new Contact({
         fname : fname,
@@ -177,9 +236,10 @@ app.post('/contact', async (req, res) => {
 
         res.json({
             success: true,
-            message: "Message successfully",
+            message: "Message sent successfully",
             data: savedContact
         })
+        
    
 
 
