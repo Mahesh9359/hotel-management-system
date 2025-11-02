@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import "./Signin.css";
-import User from "./../util/user.js";
 import { Link } from "react-router-dom";
 import back from "./../images/back.jpg";
 
