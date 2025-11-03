@@ -1,57 +1,167 @@
-.col-md-9
-{
-    background-color: aqua;
-    align-items: center;
-    text-align: center;
-    width: 300px;
-    height: 440px;
-    margin-left: 700px;
-    margin-right: auto;
-    margin-top: 100px;
-    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
-    
-    
-    
-    border-radius: 20px;
-    box-shadow: 3px 3px 5px 1px #808080;
+.signin-wrapper {
+  min-height: 100vh;
 }
-.info-container-text
-{
-    color:tomato;
-    margin: 10px;
-    font-size: 34px;
+
+.signin-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
-.login-img
-{
-    height: 50px;
-    padding-top: 10px;
+
+.banner-container {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 30px;
 }
-.link-signup
-{
-    text-decoration: none;
-    color: rgb(26, 4, 15);
+
+.banner {
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.user-input
-{
-    margin:15px;
-    width: 250px;
-    background-color: transparent;
-    color: aliceblue;
+
+.banner-text {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.form-title
-{
-    padding-bottom: 20px;
-    padding-top: 10px;
-    font-size: 30px;
+
+.signin-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
-.login-button
-{
-    text-align: center;
-    border-radius: 8px;
+
+.signin-card {
+
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.login-button:hover
-{
-    color:black;
-    background-color: #6892ed;
-    box-shadow: 2px 2px 4px 2px;
+
+.signin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.15),
+    0 10px 20px rgba(0, 0, 0, 0.1);
 }
+
+.signin-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.signin-title {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.signin-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  margin: 0;
+}
+
+.signin-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-label {
+  display: block;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-input {
+  width: 100%;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.signin-button {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 25px;
+  backdrop-filter: blur(10px);
+}
+
+.signin-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.signup-link-container {
+  text-align: center;
+}
+
+.signup-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.signup-link {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.signup-link:hover {
+  color: #ffeaa7;
+  text-decoration: underline;
+}
+
+/* Reuse the same bgcolor and nav styles from Profile.css */

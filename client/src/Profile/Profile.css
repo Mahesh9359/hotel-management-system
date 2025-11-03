@@ -1,63 +1,166 @@
-.col-md-8
-{
-    background-color: aqua;
-    align-items: center;
-    text-align: center;
-    width: 330px;
-    height: 330px;
-    margin-left: 550px;
-    margin-right: auto;
-    margin-top: 170px;
-    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
-    
-    
-    
-    border-radius: 20px;
-    box-shadow: 3px 3px 5px 1px #808080;
+.profile-wrapper {
+  min-height: 100vh;
 }
-.col-md-8:hover
-{
-    border-radius: 30px;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    box-shadow: 3px 3px 5px 1px grey;}
-.size
-{
-    font-size: 25px;
-    margin-bottom: 50px;
-}
-.user-info
-{
-    font-size: 15px;
-}
-.pro-heading
-{
-    font-size: 30px;
-}
-.align
-{
-    margin-top: 10px;
-}
-.logout-txt
-{
-    font-size:15px ;
-    padding-bottom: 15px;
-}
-.btn-size
-{
-    height: 31px;
-    width: 70px;
-    border-radius: 8px;
-}
-.btn-size:hover
-{
-    color:black;
-    background-color: #6892ed;
-    box-shadow: 2px 2px 4px 2px;
-}
-.bgcolor
-{
-    background-color: #09192a;
-    height: 980px;
 
+.profile-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
+.profile-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.profile-card {
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.profile-title {
+  color: white;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-welcome {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.welcome-text {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.profile-info {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.info-label {
+  color: white;
+  font-weight: 500;
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.info-value {
+  color: white;
+  font-weight: 400;
+  text-align: right;
+  font-size: 14px;
+}
+
+.role-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.logout-btn {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.logout-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bgcolor {
+  background-color: #09192a;
+  height: 100vh;
+}
+
+.nav-link {
+  color: white !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #6892ed !important;
 }

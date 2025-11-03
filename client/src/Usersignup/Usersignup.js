@@ -21,13 +21,13 @@ function Usersignup() {
       password: password,
       role: role,
     });
-    console.log(response.data);
+    
     if (response.data.success) {
       await swal({
         title: "Success",
         text: response.data.message,
         icon: "success",
-        button: "Continue !",
+        button: "Continue!",
       });
       window.location.href = "/signin";
     } else {
@@ -45,13 +45,13 @@ function Usersignup() {
   }
 
   return (
-    <div>
-      <nav class="navbar-default navbar-side bgcolor" role="navigation">
-        <div class="sidebar-collapse bgcolor">
-          <ul class="nav bgcolor" id="main-menu">
+    <div className="signup-wrapper">
+      <nav className="navbar-default navbar-side bgcolor" role="navigation">
+        <div className="sidebar-collapse bgcolor">
+          <ul className="nav bgcolor" id="main-menu">
             <li>
-              <a href="/">
-                <i class="fa fa-home"></i> Homepage
+              <a href="/" className="nav-link">
+                <i className="fa fa-home"></i> Homepage
               </a>
             </li>
           </ul>
@@ -59,108 +59,93 @@ function Usersignup() {
       </nav>
 
       <div
-        className="row"
+        className="signup-background"
         style={{
           backgroundImage: `url(${back})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-          height: 1000,
-          width: 1470,
         }}
       >
-        <div className="">
-          <div className="info-container">
-            <marquee>
-              {" "}
-              <span className="info-container-text">
-                ⚠️Signup Here For Reservation...
-              </span>
-            </marquee>
-          </div>
-          <div className="main-container-signup-img m-1">
-            <div className="container"></div>
-          </div>
-        </div>
 
-        <div className="col-md">
-          <div className="form-container">
-            <img src={login} className="login-img" alt="userIcon" />
-            <div className="form-title clr">Signup</div>
-            <form>
-              <div>
-                <label htmlFor="name " className="clr">
-                  Full Name:{" "}
+        <div className="signup-main-container">
+          <div className="signup-card">
+            <div className="signup-header">
+              <h2 className="signup-title">Create Account</h2>
+              <p className="signup-subtitle">Join us today</p>
+            </div>
+            
+            <form className="signup-form">
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">
+                  Full Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  placeholder="Enter Name"
-                  className="user-input"
+                  placeholder="Enter your full name"
+                  className="form-input"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
 
-              <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label htmlFor="email" className="clr">
-                  Email:{" "}
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">
+                  Email Address
                 </label>
                 <input
                   type="email"
                   id="email"
-                  placeholder="Enter Email"
-                  className="user-input"
+                  placeholder="Enter your email"
+                  className="form-input"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
-              <div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
-                <label htmlFor="phone" className="clr">
-                  Phone:{" "}
+              <div className="form-group">
+                <label htmlFor="phone" className="form-label">
+                  Phone Number
                 </label>
                 <input
                   type="text"
                   id="phone"
-                  placeholder="Enter Phone"
-                  className="user-input"
+                  placeholder="Enter your phone number"
+                  className="form-input"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
 
-              <div>
-                <label htmlFor="password" className="clr">
-                  Password:{" "}
+              <div className="form-group">
+                <label htmlFor="password" className="form-label">
+                  Password
                 </label>
                 <input
                   type="password"
                   id="password"
-                  placeholder="Enter Password"
-                  className="user-input"
+                  placeholder="Create a password"
+                  className="form-input"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
 
-              <div>
-                <button
-                  type="button"
-                  className="signup-button"
-                  onClick={signupUser}
-                >
-                  Signup
-                </button>
+              <button
+                type="button"
+                className="signup-button"
+                onClick={signupUser}
+              >
+                Create Account
+              </button>
+              
+              <div className="login-link-container">
+                <span className="login-text">
+                  Already have an account?{" "}
+                  <Link to="/signin" className="login-link">
+                    Sign in here
+                  </Link>
+                </span>
               </div>
-              <br />
             </form>
-            <span className="signup-form-link">
-              <Link to="/signin" className="link-signup">
-                Already Have an Account?Login
-              </Link>
-            </span>
           </div>
         </div>
       </div>

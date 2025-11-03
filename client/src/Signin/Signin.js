@@ -5,7 +5,7 @@ import "./Signin.css";
 import { Link } from "react-router-dom";
 import back from "./../images/back.jpg";
 
-function Signup() {
+function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,13 +14,13 @@ function Signup() {
       email: email,
       password: password,
     });
-    console.log(response.data);
+    
     if (response.data.success) {
       await swal({
         title: "Success",
         text: response.data.message,
         icon: "success",
-        button: "okk!",
+        button: "Continue",
       });
       localStorage.setItem("User", JSON.stringify(response.data.data));
       window.location.href = "/profile";
@@ -38,13 +38,13 @@ function Signup() {
   }
 
   return (
-    <div>
-      <nav class="navbar-default navbar-side bgcolor" role="navigation">
-        <div class="sidebar-collapse bgcolor">
-          <ul class="nav bgcolor" id="main-menu">
+    <div className="signin-wrapper">
+      <nav className="navbar-default navbar-side bgcolor" role="navigation">
+        <div className="sidebar-collapse bgcolor">
+          <ul className="nav bgcolor" id="main-menu">
             <li>
-              <a href="/">
-                <i class="fa fa-home"></i> Homepage
+              <a href="/" className="nav-link">
+                <i className="fa fa-home"></i> Homepage
               </a>
             </li>
           </ul>
@@ -52,79 +52,65 @@ function Signup() {
       </nav>
 
       <div
-        className="row"
+        className="signin-background"
         style={{
           backgroundImage: `url(${back})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-          height: 1000,
-          width: 1470,
         }}
       >
-        <div className="col-md-6">
-          <div class="container">
-            <marquee>
-              <span className="info-container-text">
-                Login Here To continue
-              </span>
-            </marquee>
-          </div>
-        </div>
 
-        <div className="col-md-9">
-          <div className="login-form-container">
-            <div className="form-container main-form-container mt-3 ">
-              <form>
-                <div className="form-title clr">
-                  Login
-                  <hr />
-                </div>
-                <div>
-                  <label htmlFor="email" className="clr">
-                    Email:{" "}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter Email"
-                    className="user-input"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="password" className="clr">
-                    Password:{" "}
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="Enter Password"
-                    className="user-input"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-
-                <div>
-                  <hr />
-                  <button
-                    type="button"
-                    className="login-button"
-                    onClick={loginUser}
-                  >
-                    Login
-                  </button>
-                  <hr />
-                  <span className="signup-form-link">
-                    <Link to="/userSignup" className="link-signup">
-                      Don't have account signup
-                    </Link>
-                  </span>
-                </div>
-              </form>
+        <div className="signin-main-container">
+          <div className="signin-card">
+            <div className="signin-header">
+              <h2 className="signin-title">Welcome Back</h2>
+              <p className="signin-subtitle">Sign in to your account</p>
             </div>
+            
+            <form className="signin-form">
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter your email"
+                  className="form-input"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="password" className="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Enter your password"
+                  className="form-input"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+
+              <button
+                type="button"
+                className="signin-button"
+                onClick={loginUser}
+              >
+                Sign In
+              </button>
+              
+              <div className="signup-link-container">
+                <span className="signup-text">
+                  Don't have an account?{" "}
+                  <Link to="/userSignup" className="signup-link">
+                    Sign up here
+                  </Link>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -132,4 +118,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Signin;
