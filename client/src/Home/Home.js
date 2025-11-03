@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./../Home/Home.css";
 import img1 from "./../images/1.jpg";
 import about from "./../images/about.jpg";
@@ -30,6 +30,20 @@ function Home() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+    checkLoginStatus();
+  }, []);
+
+  const checkLoginStatus = () => {
+    const userData = localStorage.getItem("User");
+    if (userData) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  };
 
   async function send() {
     const response = await axios.post("/contact", {
@@ -90,28 +104,7 @@ function Home() {
             <li>
               <i class="fa fa-phone" aria-hidden="true"></i>+91 9359613329
             </li>
-            <li class="s-bar">
-              <div class="search">
-                <input class="search_box" type="checkbox" id="search_box" />
-                <label class="icon-search" for="search_box">
-                  <span
-                    class="glyphicon glyphicon-search"
-                    aria-hidden="true"
-                  ></span>
-                </label>
-                <div class="search_form">
-                  <form action="#" method="post">
-                    <input
-                      type="search"
-                      name="Search"
-                      placeholder=" "
-                      required=" "
-                    />
-                    <input type="submit" value="Search" />
-                  </form>
-                </div>
-              </div>
-            </li>
+
           </ul>
         </div>
         <div class="clearfix"></div>
@@ -162,12 +155,13 @@ function Home() {
                       Sign up{" "}
                     </a>
                   </li>
-                  <li class="menu__item">
-                    <a href="/profile" class="menu__link scroll">
-                      {" "}
-                      Profile{" "}
-                    </a>
-                  </li>
+                  {isLoggedIn && (
+                    <li class="menu__item">
+                      <a href="/profile" class="menu__link scroll">
+                        Profile
+                      </a>
+                    </li>
+                  )}
                 </ul>
               </nav>
             </div>
